@@ -19,8 +19,6 @@ class Day3 {
     private fun filter(index: Int, lines: List<List<Int>>, byMax: Boolean): Int {
         if (lines.size == 1) return lines.first().toIntByBytes()
         val partition = lines.partition { it[index] == 0 }
-        println(partition.first)
-        println(partition.second)
         val newLines = if (byMax) {
             maxOf(partition.second, partition.first, compareBy { it.size })
         } else {
