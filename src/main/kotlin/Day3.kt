@@ -3,13 +3,11 @@ import util.toIntByBytes
 
 class Day3 {
     fun part1() {
-        val input = readInputFileLines(3)
-        val bytes = input.map { line ->
+        val bytes = readInputFileLines(3).map { line ->
             line.map { it.digitToInt() }
         }.reduce { acc, bit ->
             acc.mapIndexed { index, value -> value + (if (bit[index] == 0) -1 else 1) }
         }.map { if (it > 0) 1 else 0 }.toIntByBytes()
-
         println(bytes * (bytes xor 0xFFF))
     }
 
