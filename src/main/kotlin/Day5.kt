@@ -32,9 +32,7 @@ class Day5 {
                 // Part 2
                 val yRange = if (v.start.y < v.end.y) (v.start.y..v.end.y) else (v.start.y downTo v.end.y)
                 val xRange = if (v.start.x < v.end.x) (v.start.x..v.end.x) else (v.start.x downTo v.end.x)
-                xRange.forEachIndexed { index, it ->
-                    matrix[it, yRange.toList()[index]]++
-                }
+                xRange.forEachIndexed { index, it -> matrix[it, yRange.toList()[index]]++ }
             }
         }
         println(matrix.count { it >= 2 })
